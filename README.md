@@ -3,7 +3,7 @@
 
 ## Overview
 
-This are ETL solution to produce 
+The following project contains ETL scripts to populate hourly salary data aggregated by year, month, and branch_id from employees and timesheet data. This is achieved using both SQL and Python, and the results are stored in an SQLite database.
 
 ## Folder Structure
 
@@ -29,7 +29,7 @@ sudo apt-get update
 sudo apt-get install sqlite3
 ```
 
-Create Employees, Timesheet and Salary perhour:
+Create Employees, Timesheet and Salary perhour tables:
 
 ```bash
 #!/bin/bash
@@ -135,3 +135,6 @@ python script_python/etl.py data/employees.csv data/timesheets.csv database/pyth
 
 For experimental purposes, the project includes step-by-step and interactive solutions for both Python and SQL approaches in Jupyter notebooks. To run them, you need to install Jupyter Notebook and the following libraries in the Conda shell (for Linux): `ipython-sql` and `sqlite3`.
 
+
+## Note
+The error `database is locked` may occur if the Jupyter program is still connected to the database. You can resolve this issue by gracefully stopping the kernel or stopping the Jupyter server. Alternatively, it's safe to delete the database file, as it will be automatically repopulated when the script or Jupyter program is run again.
